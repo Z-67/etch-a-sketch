@@ -1,6 +1,11 @@
-document.addEventListener("DOMContentLoaded", () => {
+function createGrid() {
     const container = document.getElementById("gridContainer");
-    const gridSize = 16;
+    container.innerHTML = ""; // Clear the existing grid
+
+    const gridSize = parseInt(document.getElementById("numSquares").value);
+    const squareSize = 960 / gridSize;
+
+    container.style.gridTemplateColumns = `repeat(${gridSize}, ${squareSize}px)`;
 
     for (let i = 0; i < gridSize; i++) {
         for (let j = 0; j < gridSize; j++) {
@@ -16,6 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
             event.target.style.backgroundColor = "#f00"; // Change to red (#f00)
         }
     });
-});
+}
 
-  
+const createButton = document.getElementById("createButton");
+createButton.addEventListener("click", createGrid);
+
+// Call createGrid initially to create the initial grid
+createGrid();
