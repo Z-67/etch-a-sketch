@@ -1,0 +1,12 @@
+.grid-container {
+    width: 960px;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-gap: 1px;
+}
+
+.grid-item {
+    width: 100%;
+    padding-bottom: 100%; /* To maintain a square aspect ratio */
+    background-color: #ccc;
+}
