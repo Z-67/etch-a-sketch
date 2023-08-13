@@ -18,7 +18,7 @@ function createGrid() {
     // Add event listener to update background color permanently on mouseover
     container.addEventListener("mouseover", (event) => {
         if (event.target.classList.contains("grid-item")) {
-            event.target.style.backgroundColor = "#f00"; // Change to red (#f00)
+            event.target.style.backgroundColor = "#000000"; 
         }
     });
 }

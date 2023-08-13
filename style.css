@@ -1,14 +1,47 @@
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .grid-container {
-    width: 960px;
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     grid-gap: 1px;
+    border: 70px solid rgb(249, 62, 62);
+    box-sizing: content-box;
+    position: relative;
 }
 
 .grid-item {
     width: 100%;
-    padding-bottom: 100%; /* To maintain a square aspect ratio */
+    padding-bottom: 100%;
     background-color: #ccc;
-    
+}
+
+
+
+.circle-bottom-left {
+    bottom: -25px;
+    left: -25px;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 1; /* Ensure the circles appear above the grid */
+}
+
+.circle-bottom-right {
+    bottom: -25px;
+    right: -25px;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 1; /* Ensure the circles appear above the grid */
 }
 
