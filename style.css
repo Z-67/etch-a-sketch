@@ -11,7 +11,7 @@ body {
     grid-template-columns: repeat(16, 1fr);
     grid-gap: 1px;
     border: 70px solid rgb(249, 62, 62);
-    box-sizing: content-box;
+    
     position: relative;
 }
 
@@ -22,26 +22,24 @@ body {
 }
 
 
-
-.circle-bottom-left {
-    bottom: -25px;
-    left: -25px;
-    position: absolute;
+.circle {
     width: 50px;
     height: 50px;
-    background-color: white;
     border-radius: 50%;
-    z-index: 1; /* Ensure the circles appear above the grid */
+    background-color: blue;
+    position: absolute;
+    z-index: 1; /* Ensure circles are on top */
 }
 
-.circle-bottom-right {
-    bottom: -25px;
-    right: -25px;
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: white;
-    border-radius: 50%;
-    z-index: 1; /* Ensure the circles appear above the grid */
+.bottom-left {
+    bottom: 0;
+    left: 0;
+    z-index: 1; /* Ensure circles are on top */
+}
+
+.bottom-right {
+    bottom: 0;
+    right: 0;
+    z-index: 1; /* Ensure circles are on top */
 }
 

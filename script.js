@@ -1,3 +1,7 @@
+
+const slider = document.getElementById("numSquares");
+const sliderValueOutput = document.getElementById("sliderValue");
+
 function createGrid() {
     const container = document.getElementById("gridContainer");
     container.innerHTML = ""; // Clear the existing grid
@@ -28,3 +32,7 @@ createButton.addEventListener("click", createGrid);
 
 // Call createGrid initially to create the initial grid
 createGrid();
+
+slider.addEventListener("input", () => {
+    sliderValueOutput.textContent = slider.value;
+});
