@@ -1,9 +1,10 @@
 const slider = document.getElementById("numSquares");
 const sliderValueOutput = document.getElementById("sliderValue");
 const container = document.getElementById("gridContainer");
+const eraseButton = document.getElementById("erase");
+const gridContainer = document.getElementById("gridContainer");
 
 function createGrid() {
-  
     container.innerHTML = ""; // Clear the existing grid
 
     const gridSize = parseInt(document.getElementById("numSquares").value);
@@ -25,7 +26,25 @@ function createGrid() {
             event.target.style.backgroundColor = "#000000"; 
         }
     });
-}
+
+    let erasing = false;
+
+    eraseButton.addEventListener("mousedown", () => {
+        eraseButton.classList.add("active");
+        erasing = true; // Activate erasing mode
+    });
+
+    gridContainer.addEventListener("mouseleave", () => {
+        eraseButton.classList.remove("active");
+        erasing = false; // Deactivate erasing mode
+    });
+
+    gridContainer.addEventListener("mouseover", (event) => {
+        if (erasing && event.target.classList.contains("grid-item")) {
+            event.target.style.backgroundColor = "#ccc"; // Change to your erased color
+        }
+    });
+};
 
 const createButton = document.getElementById("createButton");
 createButton.addEventListener("click", createGrid);
@@ -38,25 +57,6 @@ slider.addEventListener("input", () => {
 });
 
 
-const eraseButton = document.getElementById("erase");
-const gridContainer = document.getElementById("gridContainer");
-let erasing = false;
-
-eraseButton.addEventListener("mousedown", () => {
-    eraseButton.classList.add("active");
-    erasing = true; // Activate erasing mode
-});
-
-gridContainer.addEventListener("mouseleave", () => {
-    eraseButton.classList.remove("active");
-    erasing = false; // Deactivate erasing mode
-});
-
-gridContainer.addEventListener("mouseover", (event) => {
-    if (erasing && event.target.classList.contains("grid-item")) {
-        event.target.style.backgroundColor = "#ccc"; // Change to your erased color
-    }
-});
 
 
 
