@@ -29,11 +29,15 @@ function createGrid() {
 
     let erasing = false;
 
-    eraseButton.addEventListener("mousedown", () => {
-        eraseButton.classList.add("active");
-        erasing = true; // Activate erasing mode
+    eraseButton.addEventListener("click", () => {
+        if (erasing) {
+            eraseButton.classList.remove("active");
+            erasing = false;
+        } else {
+            eraseButton.classList.add("active");
+            erasing = true;
+        }
     });
-
     gridContainer.addEventListener("mouseleave", () => {
         eraseButton.classList.remove("active");
         erasing = false; // Deactivate erasing mode

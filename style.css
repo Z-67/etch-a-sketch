@@ -32,7 +32,7 @@ body {
 }
 
 #erase.active {
-    background-color: red; /* Change the color to suit your design */
+    background-color: grey; /* Change the color to suit your design */
     color: white;
 }
 
@@ -44,25 +44,18 @@ body {
 .circle {
     width: 50px;
     height: 50px;
-    border-radius: 50%;
     background-color: blue;
-    position: relative;
-    z-index: 1; /* Ensure circles are on top */
-}
-
-.bottom-left {
-    bottom: 0;
-    left: 0;
-    z-index: 1; /* Ensure circles are on top */
-    position:absolute ;
-    left: 1500px;
-}
-
-.bottom-right {
-    bottom: 0;
-    right: 0;
-    z-index: 1; /* Ensure circles are on top */
+    border-radius: 50%;
     position: absolute;
-    right: 1000px;
-}
-
+  }
+  
+  .bottom-left {
+    bottom: 20px;
+    left: 20px;
+  }
+  
+  .bottom-right {
+    bottom: 20px;
+    right: 20px;
+  }
+  
