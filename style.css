@@ -11,7 +11,6 @@ body {
     grid-template-columns: repeat(16, 1fr);
     grid-gap: 1px;
     border: 70px solid rgb(249, 62, 62);
-    
     position: relative;
 }
 
@@ -21,13 +20,33 @@ body {
     background-color: #ccc;
 }
 
+#erase {
+    position: absolute;
+    left:1700px;
+    top:50px;
+    background-color: white;
+    color: black;
+    font-size: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Adding shadow */
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+#erase.active {
+    background-color: red; /* Change the color to suit your design */
+    color: white;
+}
+
+
+
+
+/*circles for border */
 
 .circle {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     background-color: blue;
-    position: absolute;
+    position: relative;
     z-index: 1; /* Ensure circles are on top */
 }
 
@@ -35,11 +54,15 @@ body {
     bottom: 0;
     left: 0;
     z-index: 1; /* Ensure circles are on top */
+    position:absolute ;
+    right: 100px;
 }
 
 .bottom-right {
     bottom: 0;
     right: 0;
     z-index: 1; /* Ensure circles are on top */
+    position: absolute;
+    right: 100px;
 }
 
