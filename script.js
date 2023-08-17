@@ -3,6 +3,7 @@ const sliderValueOutput = document.getElementById("sliderValue");
 const container = document.getElementById("gridContainer");
 const eraseButton = document.getElementById("erase");
 const gridContainer = document.getElementById("gridContainer");
+const clearButton = document.getElementById("clear");
 
 function createGrid() {
     container.innerHTML = ""; // Clear the existing grid
@@ -27,6 +28,13 @@ function createGrid() {
         }
     });
 
+    clearButton.addEventListener("click", () => {
+        const gridItems = document.querySelectorAll(".grid-item");
+        gridItems.forEach(gridItem => {
+            gridItem.style.backgroundColor = "#ccc";
+        });
+    });
+
     let erasing = false;
 
     eraseButton.addEventListener("click", () => {
@@ -38,6 +46,7 @@ function createGrid() {
             erasing = true;
         }
     });
+
     gridContainer.addEventListener("mouseleave", () => {
         eraseButton.classList.remove("active");
         erasing = false; // Deactivate erasing mode
