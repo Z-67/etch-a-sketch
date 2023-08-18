@@ -10,7 +10,7 @@ body {
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     grid-gap: 1px;
-    border: 2.8vw solid rgb(249, 62, 62); /* Adjusted border width */
+    border: 2.8vw solid rgb(249, 62, 62); 
     position: relative;
 }
 
@@ -22,23 +22,12 @@ body {
 
 #erase {
     position: absolute;
-    left: 68vw; /* Adjusted left position */
-    top: 2.5vh;  /* Adjusted top position */
+    left: 70vw; 
+    top: 2.5vh;  
     background-color: white;
     color: black;
-    font-size: 3.5vh; /* Adjusted font size */
-    box-shadow: 0 1.5vw 2vw rgba(0, 0, 0, 0.5); /* Adjusted shadow */
-    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
-}
-
-#clear {
-    position: absolute;
-    left: 68vw; /* Adjusted left position */
-    top: 10vh;  /* Adjusted top position */
-    background-color: white;
-    color: black;
-    font-size: 3.5vh; /* Adjusted font size */
-    box-shadow: 0 1.5vw 2vw rgba(0, 0, 0, 0.5); /* Adjusted shadow */
+    font-size: 3.5vh; 
+    box-shadow: 0 1.5vw 2vw rgba(0, 0, 0, 0.5); 
     transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 }
 
@@ -47,8 +36,34 @@ body {
     color: white;
 }
 
+#clear {
+    position: absolute;
+    left: 70vw; 
+    top: 10vh;  
+    background-color: white;
+    color: black;
+    font-size: 3.5vh; 
+    box-shadow: 0 1.5vw 2vw rgba(0, 0, 0, 0.5); 
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
 
+#rainbow {
+    position: absolute;
+    left: 70vw; 
+    top: 17.50vh;  
+    background-color: white;
+    color: black;
+    font-size: 3.5vh; 
+    box-shadow: 0 1.5vw 2vw rgba(0, 0, 0, 0.5); 
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
 
+#rainbow.active {
+    background-color: linear-gradient(to right, 
+        red, orange, yellow, green, blue, indigo, violet
+    );
+
+}
 
 
 

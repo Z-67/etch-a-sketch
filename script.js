@@ -1,28 +1,32 @@
 const slider = document.getElementById("numSquares");
 const sliderValueOutput = document.getElementById("sliderValue");
-const container = document.getElementById("gridContainer");
 const eraseButton = document.getElementById("erase");
 const gridContainer = document.getElementById("gridContainer");
 const clearButton = document.getElementById("clear");
+const rainbowButton = document.getElementById("rainbow");
+
+
 
 function createGrid() {
-    container.innerHTML = ""; // Clear the existing grid
+    gridContainer.innerHTML = ""; // Clear the existing grid
+    rainbowButton.classList.remove("active");
+
 
     const gridSize = parseInt(document.getElementById("numSquares").value);
     const squareSize = 960 / gridSize;
 
-    container.style.gridTemplateColumns = `repeat(${gridSize}, ${squareSize}px)`;
+    gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, ${squareSize}px)`;
 
     for (let i = 0; i < gridSize; i++) {
         for (let j = 0; j < gridSize; j++) {
             const gridItem = document.createElement("div");
             gridItem.classList.add("grid-item");
-            container.appendChild(gridItem);
+            gridContainer.appendChild(gridItem);
         }
     }
 
     // Add event listener to update background color permanently on mouseover
-    container.addEventListener("mouseover", (event) => {
+    gridContainer.addEventListener("mouseover", (event) => {
         if (event.target.classList.contains("grid-item")) {
             event.target.style.backgroundColor = "#000000"; 
         }
@@ -47,26 +51,52 @@ function createGrid() {
         }
     });
 
-    gridContainer.addEventListener("mouseleave", () => {
-        eraseButton.classList.remove("active");
-        erasing = false; // Deactivate erasing mode
+    gridContainer.addEventListener("mouseover", (event) => {
+        if (erasing && event.target.classList.contains("grid-item")) {
+            event.target.style.backgroundColor = "#ccc"; 
+        }
+    });
+
+    let isRainbowMode = false;
+
+    rainbowButton.addEventListener("click", () => {
+        isRainbowMode = !isRainbowMode;
+
+        if (isRainbowMode) {
+            rainbowButton.classList.add("active");
+            rainbowButton.style.background = "linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet)";
+        } else {
+            rainbowButton.classList.remove("active");
+            rainbowButton.style.background = "";
+        }
     });
 
     gridContainer.addEventListener("mouseover", (event) => {
-        if (erasing && event.target.classList.contains("grid-item")) {
-            event.target.style.backgroundColor = "#ccc"; // Change to your erased color
+        if (isRainbowMode && event.target.classList.contains("grid-item")) {
+            const randomColor = getRandomColor();
+            event.target.style.backgroundColor = randomColor;
         }
     });
-};
+
+    function getRandomColor() {
+        const colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+        const randomIndex = Math.floor(Math.random() * colors.length);
+        return colors[randomIndex];
+    }
+
+        };
+
 
 const createButton = document.getElementById("createButton");
 createButton.addEventListener("click", createGrid);
 
-// Call createGrid initially to create the initial grid
+// Call createGrid to create the initial grid
 createGrid();
 
 slider.addEventListener("input", () => {
     sliderValueOutput.textContent = slider.value;
+
+
 });
 
 
