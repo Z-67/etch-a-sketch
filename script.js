@@ -56,6 +56,7 @@ function createGrid() {
             erasing = true;
             isRainbowMode = false;
             rainbowButton.classList.remove("active");
+            rainbowButton.style.background = "";
         }
     });
 
@@ -73,6 +74,8 @@ function createGrid() {
         if (isRainbowMode) {
             rainbowButton.classList.add("active");
             rainbowButton.style.background = "linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet)";
+            isErasing = false;
+            eraseButton.classList.remove("active");
         } else {
             rainbowButton.classList.remove("active");
             rainbowButton.style.background = "";
