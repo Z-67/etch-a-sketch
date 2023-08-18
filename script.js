@@ -9,7 +9,13 @@ const rainbowButton = document.getElementById("rainbow");
 
 function createGrid() {
     gridContainer.innerHTML = ""; // Clear the existing grid
+
+    let isRainbowMode = false;
     rainbowButton.classList.remove("active");
+    rainbowButton.style.background = "";
+
+    eraseButton.classList.remove("active");
+    let erasing = false;
 
 
     const gridSize = parseInt(document.getElementById("numSquares").value);
@@ -39,7 +45,7 @@ function createGrid() {
         });
     });
 
-    let erasing = false;
+    erasing = false;
 
     eraseButton.addEventListener("click", () => {
         if (erasing) {
@@ -48,6 +54,8 @@ function createGrid() {
         } else {
             eraseButton.classList.add("active");
             erasing = true;
+            isRainbowMode = false;
+            rainbowButton.classList.remove("active");
         }
     });
 
@@ -57,7 +65,7 @@ function createGrid() {
         }
     });
 
-    let isRainbowMode = false;
+    isRainbowMode = false;
 
     rainbowButton.addEventListener("click", () => {
         isRainbowMode = !isRainbowMode;
