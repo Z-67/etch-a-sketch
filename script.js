@@ -110,9 +110,3 @@ slider.addEventListener("input", () => {
 
 });
 
-
-
-
-
-
-
