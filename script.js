@@ -52,12 +52,14 @@ function createGrid() {
         if (erasing) {
             eraseButton.classList.remove("active");
             erasing = false;
+            deactivatePencils();
         } else {
             eraseButton.classList.add("active");
             erasing = true;
             isRainbowMode = false;
             rainbowButton.classList.remove("active");
             rainbowButton.style.background = "";
+            deactivatePencils();
         }
     });
 
@@ -77,11 +79,21 @@ function createGrid() {
             rainbowButton.style.background = "linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet)";
             isErasing = false;
             eraseButton.classList.remove("active");
+            deactivatePencils();
         } else {
             rainbowButton.classList.remove("active");
             rainbowButton.style.background = "";
+            deactivatePencils();
         }
     });
+
+    function deactivatePencils() {
+        pencils.forEach((pencil) => {
+            pencil.classList.remove("active");
+            pencilTips[pencil.dataset.index].style.marginLeft = "";
+        });
+        activePencilColor = "";
+    }
 
     gridContainer.addEventListener("mouseover", (event) => {
         if (isRainbowMode && event.target.classList.contains("grid-item")) {
@@ -107,6 +119,12 @@ function createGrid() {
 pencils.forEach((pencil, index) => {
     pencil.addEventListener("click", () => {
         const isActive = pencil.classList.toggle("active");
+
+        isRainbowMode = false;
+        rainbowButton.classList.remove("active");
+        rainbowButton.style.background = "";
+        erasing = false;
+        eraseButton.classList.remove("active");
 
         // Remove "active" class from all other pencils and reset pencil tips
         pencils.forEach((p, i) => {
