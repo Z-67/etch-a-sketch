@@ -4,7 +4,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 8vw;
+    margin-left: 12vw;
     background-color: #333;
 }
 
@@ -24,7 +24,7 @@ body {
 
 #erase {
     position: absolute;
-    left: 72vw; 
+    left: 73vw; 
     top: 2.5vh;  
     background-color: white;
     color: black;
@@ -40,7 +40,7 @@ body {
 
 #clear {
     position: absolute;
-    left: 72vw; 
+    left: 73vw; 
     top: 10vh;  
     background-color: white;
     color: black;
@@ -51,7 +51,7 @@ body {
 
 #rainbow {
     position: absolute;
-    left: 72vw; 
+    left: 73vw; 
     top: 17.50vh;  
     background-color: white;
     color: black;
@@ -244,9 +244,6 @@ body {
 
   
 .pencil.active {
-    width: 10vw; 
+    width: 12vw; 
 }
 
-.pencil-tip.active {
-    margin-left: 2vw;
-}

@@ -96,6 +96,24 @@ function createGrid() {
     }
 
 
+
+    pencils.forEach((pencil, index) => {
+        pencil.addEventListener("click", () => {
+            const isActive = pencil.classList.toggle("active"); // Toggle active state
+    
+            // Remove "active" class from all other pencils and reset pencil tips
+            pencils.forEach((p, i) => {
+                if (i !== index) {
+                    p.classList.remove("active");
+                    pencilTips[i].style.marginLeft = "";
+                }
+            });
+    
+            // Update pencil tip's margin-left based on pencil width
+            pencilTips[index].style.marginLeft = isActive ? "12vw" : "";
+        });
+    });
+
     };
 
 
