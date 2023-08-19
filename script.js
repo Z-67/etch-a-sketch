@@ -7,6 +7,8 @@ const rainbowButton = document.getElementById("rainbow");
 const pencils = document.querySelectorAll(".pencil");
 const pencilTips = document.querySelectorAll(".pencil-tip");
 
+let activePencilColor = '';
+
 function createGrid() {
     gridContainer.innerHTML = ""; // Clear the existing grid
 
@@ -16,7 +18,6 @@ function createGrid() {
 
     eraseButton.classList.remove("active");
     let erasing = false;
-
 
     const gridSize = parseInt(document.getElementById("numSquares").value);
     const squareSize = 960 / gridSize;
@@ -95,26 +96,41 @@ function createGrid() {
         return colors[randomIndex];
     }
 
-
-
-    pencils.forEach((pencil, index) => {
-        pencil.addEventListener("click", () => {
-            const isActive = pencil.classList.toggle("active"); // Toggle active state
-    
-            // Remove "active" class from all other pencils and reset pencil tips
-            pencils.forEach((p, i) => {
-                if (i !== index) {
-                    p.classList.remove("active");
-                    pencilTips[i].style.marginLeft = "";
-                }
-            });
-    
-            // Update pencil tip's margin-left based on pencil width
-            pencilTips[index].style.marginLeft = isActive ? "12vw" : "";
-        });
+    gridContainer.addEventListener("mouseover", (event) => {
+        if (activePencilColor && event.target.classList.contains("grid-item")) {
+            event.target.style.backgroundColor = activePencilColor;
+        }
     });
+}
 
-    };
+// Attach click event listeners to pencils
+pencils.forEach((pencil, index) => {
+    pencil.addEventListener("click", () => {
+        const isActive = pencil.classList.toggle("active");
+
+        // Remove "active" class from all other pencils and reset pencil tips
+        pencils.forEach((p, i) => {
+            if (i !== index) {
+                p.classList.remove("active");
+                pencilTips[i].style.marginLeft = "";
+            }
+        });
+
+        // Update pencil tip's margin-left based on pencil width
+        pencilTips[index].style.marginLeft = isActive ? "12vw" : "";
+
+        // Update active pencil color
+        activePencilColor = isActive ? pencil.dataset.color : "";
+
+        // Reset active pencil color when the same pencil is clicked again
+        if (!isActive) {
+            activePencilColor = "";
+        }
+
+        // Reset pencil tip position when the same pencil is clicked again
+        pencilTips[index].style.marginLeft = isActive ? "12vw" : "";
+    });
+});
 
 
 const createButton = document.getElementById("createButton");
