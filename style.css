@@ -5,6 +5,7 @@ body {
     align-items: center;
     justify-content: center;
     margin-left: 8vw;
+    background-color: #333;
 }
 
 .grid-container {
@@ -74,6 +75,7 @@ body {
 
 .input-container {
     font-size: 1vw;
+    color: white;
 }
 
 .pencils {
@@ -90,12 +92,24 @@ body {
     width: 8vw;
     height: 5vh;
     margin-bottom: 2vh;
-    background-color: gray;
     cursor: pointer;
     border: 2px solid white;
-    border-radius: 2px;}
+    border-radius: 2px;
+}
 
-/* Add the colors for each pencil */
+
+.pencil-tip {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 2.5vh 0 3vh 3vh; 
+    border-color: transparent transparent transparent white;
+    margin-left:8vw ;
+    margin-top: -0.2vh;
+   
+}
+
+
 .red {
     background-color: red;
 }
