@@ -5,8 +5,6 @@ const gridContainer = document.getElementById("gridContainer");
 const clearButton = document.getElementById("clear");
 const rainbowButton = document.getElementById("rainbow");
 
-
-
 function createGrid() {
     gridContainer.innerHTML = ""; // Clear the existing grid
 
