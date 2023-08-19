@@ -109,6 +109,82 @@ body {
    
 }
 
+.pencil.red .pencil-tip::before {
+    content: "";
+    position: absolute;
+    width: 1vh;
+    height: 1vh;
+    background-color: red; 
+    border-radius: 50%;
+    margin-left: -1vh; 
+    margin-top: -0.4vh; 
+}
+
+.pencil.orange .pencil-tip::before {
+    content: "";
+    position: absolute;
+    width: 1vh;
+    height: 1vh;
+    background-color: orange; 
+    border-radius: 50%;
+    margin-left: -1vh; 
+    margin-top: -0.4vh; 
+}
+
+.pencil.yellow .pencil-tip::before {
+    content: "";
+    position: absolute;
+    width: 1vh;
+    height: 1vh;
+    background-color: yellow; 
+    border-radius: 50%;
+    margin-left: -1vh; 
+    margin-top: -0.4vh; 
+}
+
+.pencil.green .pencil-tip::before {
+    content: "";
+    position: absolute;
+    width: 1vh;
+    height: 1vh;
+    background-color: green; 
+    border-radius: 50%;
+    margin-left: -1vh; 
+    margin-top: -0.4vh; 
+}
+
+.pencil.blue .pencil-tip::before {
+    content: "";
+    position: absolute;
+    width: 1vh;
+    height: 1vh;
+    background-color: blue; 
+    border-radius: 50%;
+    margin-left: -1vh; 
+    margin-top: -0.4vh; 
+}
+
+.pencil.indigo .pencil-tip::before {
+    content: "";
+    position: absolute;
+    width: 1vh;
+    height: 1vh;
+    background-color: indigo; 
+    border-radius: 50%;
+    margin-left: -1vh; 
+    margin-top: -0.4vh; 
+}
+
+.pencil.violet .pencil-tip::before {
+    content: "";
+    position: absolute;
+    width: 1vh;
+    height: 1vh;
+    background-color: violet; 
+    border-radius: 50%;
+    margin-left: -1vh; 
+    margin-top: -0.4vh; 
+}
 
 .red {
     background-color: red;
@@ -167,3 +243,10 @@ body {
 }
 
   
+.pencil.active {
+    width: 10vw; 
+}
+
+.pencil-tip.active {
+    margin-left: 2vw;
+}

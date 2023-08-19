@@ -4,6 +4,8 @@ const eraseButton = document.getElementById("erase");
 const gridContainer = document.getElementById("gridContainer");
 const clearButton = document.getElementById("clear");
 const rainbowButton = document.getElementById("rainbow");
+const pencils = document.querySelectorAll(".pencil");
+const pencilTips = document.querySelectorAll(".pencil-tip");
 
 function createGrid() {
     gridContainer.innerHTML = ""; // Clear the existing grid
@@ -93,7 +95,8 @@ function createGrid() {
         return colors[randomIndex];
     }
 
-        };
+
+    };
 
 
 const createButton = document.getElementById("createButton");
