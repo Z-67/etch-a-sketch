@@ -11,7 +11,7 @@ body {
 .grid-container {
     display: grid;
     grid-template-columns: repeat(16, 1fr);
-    grid-gap: 1px;
+    grid-gap: 0vw;
     border: 2.8vw solid rgb(249, 62, 62); 
     position: relative;
 }
@@ -24,13 +24,14 @@ body {
 
 #erase {
     position: absolute;
-    left: 73vw; 
+    left: 0vw; 
     top: 2.5vh;  
     background-color: white;
     color: black;
     font-size: 3.5vh; 
     box-shadow: 0 1.5vw 2vw rgba(0, 0, 0, 0.5); 
     transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    z-index: 2;
 }
 
 #erase.active {
@@ -39,25 +40,27 @@ body {
 }
 
 #clear {
-    position: absolute;
-    left: 73vw; 
+    position: fixed;
+    left: 0vw; 
     top: 10vh;  
     background-color: white;
     color: black;
     font-size: 3.5vh; 
     box-shadow: 0 1.5vw 2vw rgba(0, 0, 0, 0.5); 
     transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    z-index: 2;
 }
 
 #rainbow {
     position: absolute;
-    left: 73vw; 
+    left: 0vw; 
     top: 17.50vh;  
     background-color: white;
     color: black;
     font-size: 3.5vh; 
     box-shadow: 0 1.5vw 2vw rgba(0, 0, 0, 0.5); 
     transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    z-index: 2;
 }
 
 #rainbow.active {
@@ -106,6 +109,7 @@ body {
     border-color: transparent transparent transparent white;
     margin-left:8vw ;
     margin-top: -0.2vh;
+    
    
 }
 
